@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:tizen="http://tizen.org/ns/widgets" id="http://yourdomain/WatchForSwim" version="1.0.0" viewmodes="maximized">
+    <tizen:application id="1MtX1ZbvQT.WatchForSwim" package="1MtX1ZbvQT" required_version="2.3"/>
+    <author href="https://crowz.kr/" email="craven@crowz.kr">Raven</author>
+    <content src="index.html"/>
+    <feature name="http://tizen.org/feature/screen.size.all"/>
+    <icon src="watch_for_swim.png"/>
+    <name>WatchForSwim</name>
+    <tizen:profile name="wearable"/>
+    <tizen:setting background-support="enable"/>
+</widget>

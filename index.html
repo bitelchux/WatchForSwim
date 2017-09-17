@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width,user-scalable=no">
+    <meta charset="utf-8" />
+    <meta name="description" content="StopWatch" />
+    <title>StopWatch</title>
+    <link rel="stylesheet" href="lib/tau/wearable/theme/default/tau.css">
+    <link rel="stylesheet" media="all and (-tizen-geometric-shape: circle)" href="lib/tau/wearable/theme/default/tau.circle.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+
+<body>
+    <div class="ui-page ui-page-active" id="stopwatch-page" data-scroll="none">
+        <div class="ui-content" id="stopwatch-content-timer" data-scroll="none">
+            <div class="progress-indicator lap-progress"></div>
+            <div class="progress-indicator total-progress"></div>
+            <div class="progress-indicator cue"></div>
+            <canvas id="path-canvas" class="progress-indicator path-around" width="360" height="360"></canvas>
+            <div class="touch-indicator top-indicator"></div>
+            <div class="touch-indicator bottom-indicator"></div>
+            <div class="main-control">
+                <button indicator="top" type="button" class="ui-btn ui-btn-footer-icon stopwatch-btn stopwatch-ready btn-play" id="stopwatch-start-btn">START</button>
+                <button indicator="top" type="button" class="ui-btn ui-btn-footer-icon stopwatch-btn stopwatch-waiting btn-left btn-pause hidden" id="stopwatch-stop-btn">STOP</button>
+                <button indicator="top" type="button" class="ui-btn ui-btn-footer-icon stopwatch-btn stopwatch-paused btn-left btn-restart hidden" id="stopwatch-restart-btn">RESUME</button>
+                <button indicator="top" type="button" class="ui-btn ui-btn-footer-icon stopwatch-btn stopwatch-running btn-left btn-running hidden" id="stopwatch-running-btn">RUNNING</button>
+                <div id="stopwatch-wrapper">
+                    <div id="stopwatch-wrapper-frame">
+                        <div id="d0" class="digit">0</div>
+                        <div id="d1" class="digit">0</div>
+                        <div class="digit colon">:</div>
+                        <div id="d2" class="digit">0</div>
+                        <div id="d3" class="digit">0</div>
+                        <div class="digit colon">.</div>
+                        <div id="d4" class="digit">0</div>
+                        <div id="d5" class="digit">0</div>
+                    </div>
+                </div>
+                <button indicator="bottom" type="button" class="ui-btn ui-btn-footer-icon stopwatch-btn stopwatch-paused btn-right btn-stop hidden footer-button-last" id="stopwatch-reset-btn">RESET</button>
+                <div class="lap-section">
+                    <!-- <button indicator="bottom" type="button" class="ui-btn ui-btn-footer-icon stopwatch-btn stopwatch-waiting btn-right btn-lap hidden footer-button-last" id="stopwatch-lap-btn">LAP</button> -->
+                    <span class="lap-count"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ui-page ui-page-active" id="lap-list-page">
+        <div class="ui-header" data-draggable="true">
+            <span class="lap-counter" data-draggable="true"> 0 laps </span>
+            <span class="time-counter" data-draggable="true"> 00:00.00 </span>
+        </div>
+        <div class="ui-content scrollable" id="stopwatch-content-lap-list">
+            <ul class="ui-listview" id="stopwatch-lap-list">
+            </ul>
+        </div>
+    </div>
+    <script src="./js/tau-config.js"></script>
+    <script src="./lib/tau/wearable/js/tau.js"></script>
+    <script src="./lib/helpers/circular.helper.js"></script>
+    <script src="./js/core/core.js" data-main="./js/app.js"></script>
+</body>
+
+</html>

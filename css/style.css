@@ -1,0 +1,349 @@
+button {
+    font-family: Arial;
+}
+
+.digit {
+    width: 26px;
+    height: 51px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-align: center;
+    font-size: 42px;
+    color: #fff;
+}
+
+.colon {
+    width: 11px;
+    height: 58px;
+}
+
+.digit.small {
+    width: 10px;
+    height: 15px;
+    margin-top: 36px;
+    top: 0;
+}
+
+.ui-header,
+.ui-btn {
+    background-color: transparent;
+}
+
+#stopwatch-wrapper-frame {
+    width: auto;
+    height: auto;
+}
+
+.ui-header {
+    height: 70px;
+}
+
+#stopwatch-page .ui-header {
+    display: none;
+}
+
+#stopwatch-wrapper {
+    padding-bottom: 8px;
+    margin-top: 11px;
+    height: 58px;
+    line-height: 58px;
+}
+
+#stopwatch-content-timer {
+    position: relative;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+}
+
+.ui-page #stopwatch-content-timer.ui-content {
+    background: url('../img/g_stopwatch/b_stopwatch_unit_numder.png') 0 0;
+    position: relative;
+    height: 360px !important;
+}
+
+.progress-indicator {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#path-canvas {
+    -webkit-mask-image: url('../img/g_stopwatch/b_running_progress_bg_masking.png');
+}
+
+.total-progress {
+    -webkit-mask-image: url('../img/g_stopwatch/b_stopwatch_mark.png');
+    background-color: red;
+}
+
+.lap-progress {
+    background-color: blue;
+    -webkit-mask-image: url('../img/g_stopwatch/b_stopwatch_lap_mark.png');
+}
+
+.cue {
+    background: url('../img/g_stopwatch/wc_visual_cue.png') 50% 91.5% no-repeat transparent;
+    opacity: 1;
+}
+
+.cue.animate {
+    -webkit-animation: cue .5s 0s 2 linear;
+}
+
+@-webkit-keyframes cue {
+    0% { -webkit-transform: translateY(-20px);
+        opacity: 1;
+    }
+    100% {
+        -webkit-transform: translateY(-20px);
+        opacity: 0;
+    }
+}
+
+.main-control {
+    position: fixed;
+    top: 0;
+    padding-top: 113px;
+    height: 100%;
+    width: 180px;
+    left: 90px;
+}
+
+.main-control button {
+    font-size: 26px;
+}
+
+.touch-indicator {
+    position: fixed;
+    top: 35%;
+    left: 50%;
+}
+
+.touch-indicator.bottom-indicator {
+    top: 65%;
+}
+
+.touch-indicator:before {
+    content: "";
+    left: 50%;
+    top: 50%;
+    border-radius: 50%;
+    position: absolute;
+    z-index: -1;
+    margin-left: -90px;
+    margin-top: -90px;
+    width: 180px;
+    height: 180px;
+    opacity: 0;
+    background-color: rgb(70, 70, 70);
+}
+
+.touch-indicator.active:before {
+    -webkit-animation: button-pressed .3s 0s 1 linear;
+}
+
+@-webkit-keyframes button-pressed {
+    0% {
+        background-color: rgb(70, 70, 70);
+        margin-left: -90px;
+        margin-top: -90px;
+        width: 180px;
+        height: 180px;
+        opacity: 1;
+    }
+    100% {
+        background-color: rgb(38, 38, 38);
+        margin-left: -108px;
+        margin-top: -108px;
+        width: 216px;
+        height: 216px;
+        opacity: 0;
+    }
+}
+
+button.ui-btn.hidden {
+    display: none;
+}
+
+.btn-play, .btn-pause, .stopwatch-btn {
+    padding: 0;
+}
+
+.btn-play, .btn-restart {
+    color: rgb(0, 195, 113);
+}
+
+.btn-pause {
+    color: rgb(211, 60, 60);
+    position: relative;
+}
+
+.btn-lap, .btn-stop {
+    color: rgb(0, 151, 254);
+    margin-top: 10px;
+}
+
+.btn-pause:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 96px;
+    width: 100%;
+}
+
+#stopwatch-wrapper-frame div {
+    float: left;
+}
+
+.del {
+    display: none;
+}
+
+.lap-section {
+    text-align: center;
+}
+
+.lap-count {
+    font-size: 19px;
+    color: #fff;
+    border-radius: 5px;
+    padding: 0 5px;
+    font-weight: bold;
+    opacity: 0;
+    width: 32px;
+    height: 20px;
+    line-height: 20px;
+    display: block;
+    margin: auto;
+    -webkit-mask-image: url('../img/g_stopwatch/b_stopwatch_number_bg.png');
+    background: #333;
+}
+
+.lap-count.visible {
+    opacity: 1;
+}
+
+a.ui-btn:active:hover, .ui-btn:enabled:active:hover {
+    background-color: transparent !important;
+}
+
+.ui-page.ui-scroll-on .ui-content {
+    margin-top: 0;
+}
+
+#stopwatch-content-timer {
+    transition: -webkit-transform .2s ease;
+}
+
+#stopwatch-content-timer.zoom-out {
+    -webkit-transform: scale(.9);
+}
+
+#stopwatch-content-lap-list {
+    margin-top: 102px;
+}
+
+#lap-list-page {
+    opacity: 0;
+    transition: -webkit-transform, opacity .3s ease;
+}
+
+#lap-list-page.visible {
+    opacity: 1;
+    transition: opacity .3s ease;
+}
+
+#lap-list-page .ui-listview .lap-number {
+    position: absolute;
+    left: 48px;
+    top: -1px;
+    text-align: right;
+    width: 79px;
+    font-size: 38px;
+    line-height: 50px;
+}
+
+#lap-list-page .ui-listview .lap-time {
+    position: absolute;
+    left: 149px;
+    line-height: 40px;
+    font-size: 36px;
+    margin-top: 4px;
+}
+
+#lap-list-page .ui-listview .actual-time {
+    position: absolute;
+    top: 42px;
+    left: 150px;
+    line-height: 27px;
+    font-size: 24px;
+    color: #4c4c4c;
+}
+
+#lap-list-page .ui-header {
+    position: fixed;
+    width: 100%;
+    z-index: 2;
+    height: 102px;
+    color: #10a7ed;
+}
+
+#lap-list-page .ui-header .lap-counter {
+    line-height: 39px;
+    font-weight: bold;
+    font-size: 30px;
+    position: absolute;
+    display: block;
+    width: 100%;
+    top: 28px;
+}
+
+#lap-list-page .ui-header .time-counter {
+    position: absolute;
+    top: 67px;
+    font-size: 24px;
+    line-height: 32px;
+    width: 100%;
+    text-align: center;
+    left: 0;
+    opacity: .75;
+}
+
+#stopwatch-page {
+    display: block;
+}
+
+#lap-list-page {
+    top: 290px;
+    position: fixed;
+    height: 360px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+#lap-list-page .ui-header {
+    position: absolute;
+    text-align: center;
+}
+
+.ui-page.ui-scroll-on .ui-scroller {
+    position: relative;
+}
+
+.ui-listview li {
+    padding: 0;
+    height: 84px;
+    min-height: 0;
+}
+
+/**
+ * Disable TAU list default element focus.
+ */
+.ui-listview.ui-snap-listview .ui-snap-listview-selected:before {
+    background: transparent;
+}
