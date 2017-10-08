@@ -6,6 +6,10 @@
     <feature name="http://tizen.org/feature/screen.size.all"/>
     <icon src="watch_for_swim.png"/>
     <name>WatchForSwim</name>
+    <tizen:privilege name="http://tizen.org/privilege/filesystem.read"/>
+    <tizen:privilege name="http://tizen.org/privilege/filesystem.write"/>
+    <tizen:privilege name="http://tizen.org/privilege/notification"/>
+    <tizen:privilege name="http://tizen.org/privilege/application.launch"/>
     <tizen:profile name="wearable"/>
-    <tizen:setting background-support="enable"/>
+    <tizen:setting background-support="enable" encryption="disable" hwkey-event="enable"/>
 </widget>

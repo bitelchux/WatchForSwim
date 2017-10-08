@@ -27,12 +27,14 @@
  * @namespace views/stopWatchPage
  */
 define({
-    name: 'views/stopWatchPage',
+    name: 'views/stopWatchPage', 
     requires: [
         'core/event',
         'models/timer',
         'core/template',
-        'helpers/timer'
+        'helpers/timer',
+        'models/sensor',
+        'models/log'
     ],
     def: function viewsStopWatchPage(req) {
         'use strict';
@@ -72,6 +74,10 @@ define({
              * @type {Time}
              */
             Time = req.helpers.timer.Time,
+
+            Sensor = req.models.sensor,
+            
+            Log = req.models.log,
 
             /**
              * Progress bar start angle in radians.
@@ -502,7 +508,10 @@ define({
         function start(ev) {
             ev.preventDefault();
             timer.run();
+            Sensor.loggingStart();
             showButtons();
+
+            Log.print("start!!!");
         }
 
 
@@ -535,6 +544,7 @@ define({
             showButtons();
             lapCount.classList.remove('visible');
             lapCounterElement.innerHTML = '0 Laps';
+            Log.print("reset!!!");
         }
 
         /**
@@ -596,6 +606,8 @@ define({
             timer.pause();
             refreshTimer();
             showButtons();
+            Sensor.loggingStop();
+            Log.print("stop!!!");
         }
 
         /**
@@ -786,7 +798,7 @@ define({
             });
 
             // init model
-            timer = new Timer(10, 'tick');
+            timer = new Timer(100, 'tick');
 
             // set up canvas element
             initCanvas();

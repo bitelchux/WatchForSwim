@@ -34,7 +34,9 @@ define({
         'core/template',
         'core/application',
         'views/stopWatchPage',
-        'core/systeminfo'
+        'core/systeminfo', 
+        'models/sensor',
+        'models/log'
     ],
     def: function viewsInitPage(req) {
         'use strict';
@@ -64,8 +66,10 @@ define({
              * @private
              * @type {Module}
              */
-            sysInfo = req.core.systeminfo;
-
+            sysInfo = req.core.systeminfo,
+            
+            log = req.models.log;
+        
         /**
          * Handles tizenhwkey event.
          *
@@ -79,9 +83,10 @@ define({
                     // hide lap list if visible
                     req.views.stopWatchPage.hideLapList();
                 } else {
-                    req.views.stopWatchPage.pushBackkey()
+                    req.views.stopWatchPage.pushBackkey();
                 }
             }
+            log.print("key Push : " + ev.keyName);
         }
 
         /**
@@ -93,6 +98,7 @@ define({
          * @private
          */
         function onLowBattery() {
+        	log.print("onLowBattery");
             app.exit();
         }
 
@@ -105,6 +111,7 @@ define({
          */
         function onKeyDown(ev) {
             if (ev.keyIdentifier.indexOf('Power') !== -1) {
+            	log.print("device.powerOff");
                 e.fire('device.powerOff');
             }
         }

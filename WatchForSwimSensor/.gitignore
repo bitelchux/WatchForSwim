@@ -1,7 +1,5 @@
 /.sdk_delta.info
 /WatchForSwim.wgt
 /.sign/*
-.DS_Store*
-ehthumbs.db
-Icon?
-Thumbs.db
+/Debug/
+/Release/

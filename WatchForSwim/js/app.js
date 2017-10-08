@@ -26,13 +26,18 @@
  * @requires {@link views/initPage}
  * @namespace app
  */
+
+
 define({
     name: 'app',
     requires: [
         'core/event',
         'core/application',
-        'views/initPage'
+        'views/initPage',
+        'models/log'
     ],
+    
+
     def: function appInit() {
         'use strict';
 

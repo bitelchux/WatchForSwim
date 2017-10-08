@@ -23,6 +23,9 @@
  * @requires {@link core/event}
  * @namespace models/timer
  */
+
+
+
 define({
     name: 'models/timer',
     requires: ['core/event'],
@@ -72,10 +75,10 @@ define({
             pushBackkey: function pushBackkey(){
                 if (this.status === 'running') {
                     this.timeWatied = Date.now();
-                    this.status = 'waiting'
+                    this.status = 'waiting';
                 }else 
                 {
-                    this.run()
+                    this.run();
                 }
             },
 

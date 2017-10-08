@@ -3,6 +3,7 @@
 	<name>WatchForSwim</name>
 	<comment></comment>
 	<projects>
+		<project>WatchForSwimSensor</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
